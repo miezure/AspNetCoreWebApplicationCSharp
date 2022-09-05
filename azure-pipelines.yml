@@ -26,7 +26,7 @@ resources:
     ref: master
 
 steps:
-  - checkout: self
+  # - checkout: self
   - checkout: configRepo
     lfs: true
     persistCredentials: true
