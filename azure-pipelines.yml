@@ -6,29 +6,40 @@
 trigger:
 - none
 
-pool:
-  vmImage: 'windows-latest'
+pool: Linux-self-hosted
 
 variables:
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
+resources:
+  repositories:
+    - repository: other-repo
+      type: git
+      name: MyProject/other-repo
+
 steps:
-- task: NuGetToolInstaller@1
+  - checkout: self
+  - checkout: other-repo
+    lfs: true
+    persistCredentials: true
+    clean: true
 
-- task: NuGetCommand@2
-  inputs:
-    restoreSolution: '$(solution)'
+# - task: NuGetToolInstaller@1
 
-- task: VSBuild@1
-  inputs:
-    solution: '$(solution)'
-    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+# - task: NuGetCommand@2
+#   inputs:
+#     restoreSolution: '$(solution)'
 
-- task: VSTest@2
-  inputs:
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+# - task: VSBuild@1
+#   inputs:
+#     solution: '$(solution)'
+#     msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
+#     platform: '$(buildPlatform)'
+#     configuration: '$(buildConfiguration)'
+
+# - task: VSTest@2
+#   inputs:
+#     platform: '$(buildPlatform)'
+#     configuration: '$(buildConfiguration)'
