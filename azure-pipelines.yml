@@ -30,7 +30,7 @@ steps:
   - checkout: configRepo
     # lfs: true
     # persistCredentials: true
-    clean: true
+    # clean: true
 
 # - task: NuGetToolInstaller@1
 
