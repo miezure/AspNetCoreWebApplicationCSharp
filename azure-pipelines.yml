@@ -15,9 +15,15 @@ variables:
 
 resources:
   repositories:
-    - repository: other-repo
-      type: git
-      name: MyProject/other-repo
+    # - repository: other-repo
+    #   type: git
+    #   name: cleanuptest0/other-repo
+    #    repositories:
+  - repository: configRepo
+    endpoint: 'github-delivdv-connection'
+    type: github
+    name: 
+    ref: main
 
 steps:
   - checkout: self
