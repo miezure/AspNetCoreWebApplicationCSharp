@@ -22,12 +22,12 @@ resources:
   - repository: configRepo
     endpoint: 'github-delivdv-connection'
     type: github
-    name: 
+    name: AspNetCoreWebApplicationCSharp
     ref: main
 
 steps:
   - checkout: self
-  - checkout: other-repo
+  - checkout: configRepo
     lfs: true
     persistCredentials: true
     clean: true
