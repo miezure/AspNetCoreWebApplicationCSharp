@@ -20,7 +20,7 @@ resources:
     #   name: cleanuptest0/other-repo
     #    repositories:
   - repository: configRepo
-    endpoint: 'github-delivdv-connection'
+    # endpoint: 'github-delivdv-connection'
     type: github
     name: AspNetCoreWebApplicationCSharp
     ref: main
