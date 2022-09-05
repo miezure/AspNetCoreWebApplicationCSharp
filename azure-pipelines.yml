@@ -22,7 +22,7 @@ resources:
   - repository: configRepo
     endpoint: 'miezure'
     type: github
-    name: AspNetCoreWebApplicationCSharp
+    name: miezure/AspNetCoreWebApplicationCSharp
     ref: master
 
 steps:
