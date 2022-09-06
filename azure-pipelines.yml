@@ -27,6 +27,7 @@ resources:
 
 steps:
   # - checkout: self
+  - script: 'echo $(Build.Repository.Clean)'
   - checkout: configRepo
     # lfs: true
     # persistCredentials: true
