@@ -27,19 +27,22 @@ resources:
 
 steps:
   # - checkout: self
-  - script: 'echo $(Build.Repository.Clean)'
-  - checkout: configRepo
-    # lfs: true
+  # - script: 'echo $(Build.Repository.Clean)'
+  # - checkout: configRepo
+  #   lfs: true
     # persistCredentials: true
     # clean: true
-
-- task: NuGetToolInstaller@1
-
-- task: NuGetCommand@2
+ - task: checkout
+      inputs:
+        repository: configRepo
+        
+ - task: NuGetToolInstaller@1
+ 
+ - task: NuGetCommand@2
   inputs:
     restoreSolution: '$(solution)'
 
-- task: VSBuild@1
+ - task: VSBuild@1
   inputs:
     solution: '$(solution)'
     msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
