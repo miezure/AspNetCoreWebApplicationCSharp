@@ -23,7 +23,7 @@ resources:
     endpoint: 'miezure'
     type: github
     name: miezure/AspNetCoreWebApplicationCSharp
-    ref: main
+    ref: master
 
 steps:
   # - checkout: self
