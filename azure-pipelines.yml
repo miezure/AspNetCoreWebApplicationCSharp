@@ -6,8 +6,11 @@
 trigger:
 - none
 
-pool: Linux-self-hosted
+# pool: Linux-self-hosted
 
+pool:
+  vmImage: 'windows-latest'
+  
 variables:
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
