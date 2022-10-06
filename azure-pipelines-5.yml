@@ -18,10 +18,6 @@ variables:
 
 resources:
   repositories:
-    # - repository: other-repo
-    #   type: git
-    #   name: cleanuptest0/other-repo
-    #    repositories:
   - repository: configRepo
     endpoint: 'miezure'
     type: github
@@ -29,17 +25,7 @@ resources:
     ref: master
 
 steps:
-# - task: NuGetToolInstaller@1
-
-# - task: NuGetCommand@2
-#   inputs:
-#     restoreSolution: '$(solution)'
 - checkout: configRepo
-  # - script: 'echo $(Build.Repository.Clean)'
- #- checkout: configRepo
-  #   lfs: true
-    # persistCredentials: true
-    # clean: true
 
 - task: VSBuild@1
   inputs:
