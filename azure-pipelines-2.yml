@@ -6,13 +6,27 @@
 trigger:
 - master
 
-pool:
-  vmImage: 'windows-latest'
+pool: Self-W2016
 
+# pool:
+#   vmImage: 'windows-latest'
+  
 variables:
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
+
+resources:
+  repositories:
+    # - repository: other-repo
+    #   type: git
+    #   name: cleanuptest0/other-repo
+    #    repositories:
+  - repository: configRepo
+    endpoint: 'miezure'
+    type: github
+    name: miezure/AspNetCoreWebApplicationCSharp
+    ref: master
 
 steps:
 - task: NuGetToolInstaller@1
@@ -20,6 +34,13 @@ steps:
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '$(solution)'
+
+- checkout: self
+  # - script: 'echo $(Build.Repository.Clean)'
+ #- checkout: configRepo
+  #   lfs: true
+    # persistCredentials: true
+    # clean: true
 
 - task: VSBuild@1
   inputs:
