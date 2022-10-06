@@ -29,9 +29,9 @@ resources:
     ref: master
 
 steps:
-  #- checkout: self
+  - checkout: self
   # - script: 'echo $(Build.Repository.Clean)'
- - checkout: configRepo
+ #- checkout: configRepo
   #   lfs: true
     # persistCredentials: true
     # clean: true
