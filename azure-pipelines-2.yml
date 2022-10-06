@@ -34,8 +34,8 @@ steps:
 # - task: NuGetCommand@2
 #   inputs:
 #     restoreSolution: '$(solution)'
-
-- checkout: self
+- script: 'echo $(Build.Repository.Clean)'
+- checkout: configRepo
   # - script: 'echo $(Build.Repository.Clean)'
  #- checkout: configRepo
   #   lfs: true
