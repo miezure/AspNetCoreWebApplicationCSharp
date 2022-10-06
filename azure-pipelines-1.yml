@@ -33,7 +33,7 @@ steps:
     # persistCredentials: true
     # clean: true
 
-# - task: NuGetToolInstaller@1
+- task: NuGetToolInstaller@1
 
 - task: NuGetCommand@2
   inputs:
