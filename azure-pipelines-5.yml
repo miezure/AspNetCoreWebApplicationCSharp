@@ -26,6 +26,7 @@ resources:
 
 steps:
 - checkout: configRepo
+  clean: true
 
 - task: VSBuild@1
   inputs:
