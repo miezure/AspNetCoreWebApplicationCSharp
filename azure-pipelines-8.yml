@@ -6,10 +6,10 @@
 trigger:
 - none
 
-pool: oraclelinux8
+#pool: oraclelinux8
 
-#pool:
-#  vmImage: 'windows-latest'
+pool:
+  vmImage: 'windows-latest'
   
 variables:
   solution: '**/*.sln'
@@ -36,6 +36,9 @@ steps:
     configuration: '$(buildConfiguration)'
 
 - task: VSTest@2
+- task: VSTest@2
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    diagnosticsEnabled: true
+ 
