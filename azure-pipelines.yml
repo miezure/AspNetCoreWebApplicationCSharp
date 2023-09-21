@@ -36,7 +36,7 @@ steps:
 - task: AzureRmWebAppDeployment@4  
   inputs:  
     ConnectionType: 'AzureRM'  
-    azureSubscription: '9dc1d93c-4b17-4ae5-8aa6-ce418fc3a173'  
+    azureSubscription: 'alttest0'  
     appType: 'webApp'  
     WebAppName: 'alttest0-webapp'  
     packageForLinux: '$(build.artifactStagingDirectory)\WebApp.zip'  
